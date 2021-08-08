@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Dinámico</title>
+</head>
+<body>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                           FORMULARIO GENERAL                            -->
+    <!-- ----------------------------------------------------------------------- -->
+    <form class="form" action="">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name">
+        <label for="lname">Apellido</label>
+        <input type="text" name="lname" id="lname">
+        <label for="email">Correo Electrónico</label>
+        <input type="text" name="email" id="email">
+
+        <label for="grupa">Seleccione su Grupa:</label>
+        <select name="grupa" id="grupa" multiple data-size="3" size="3">
+            <option value="grupa1">Grupa 1</option>
+            <option value="grupa2">Grupa 2</option>
+            <option value="grupa3">Grupa 3</option>
+            <option value="grupa4">Grupa 4</option>
+            <option value="grupa5">Grupa 5</option>
+        </select>
+
+        <div class="secondaryForm">
+
+        </div>
+        
+
+
+
+
+        <input type="submit" value="Enviar">
+    </form>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
