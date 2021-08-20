@@ -1,35 +1,22 @@
-$("#grupa").on('change', function () {
-    let selected = $(" #grupa option:selected ").text();
-    console.log(selected);
-
-    $('<label for="Dato1">Dato1</label>').appendTo('.secondaryForm');
-
-    $('<input/>').attr({
-        type: 'text',
-        id: 'Dato1',
-        name: 'Dato1'
-    }).appendTo('.secondaryForm');
-
-
-    $('<label for="Dato2">Dato2</label>').appendTo('.secondaryForm');
-
-    $('<input/>').attr({
-        type: 'text',
-        id: 'Dato2',
-        name: 'Dato2'
-    }).appendTo('.secondaryForm');
-
-
-    $('<label for="Dato1">Dato3</label>').appendTo('.secondaryForm');
-
-    $('<textarea/>').attr({
-        rows: '2',
-        cols: '20',
-        id: 'Dato3',
-        name: 'Dato3'
-    }).appendTo('.secondaryForm');
 
 
 
+$("#fechaGrupa").on('change', function () {
+    let name = $(" #nameGrupa").val();
+    let selected = $(" #fechaGrupa").val();
+    
+    console.log(name)
+    console.log(selected)
 
+    if(selected == "none") {
+        $('.error').show()
+    } else {
+        $('.error').hide()
+        $('.js-sub-form-template').show();
+        $('.formYear').text(selected)
+        
+        $('.sub_form_input').attr("id", name+selected);
+
+    }
+    
 })
