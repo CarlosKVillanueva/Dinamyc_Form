@@ -1,0 +1,117 @@
+html {
+  width: 90%;
+  margin: 0 auto;
+}
+h2 {
+  font-size: $font-XL;
+}
+
+button {
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 15rem;
+  border: none;
+  background-color: $pink;
+  color: $white;
+  &:hover {
+    color: $darkerGray;
+    cursor: pointer;
+  }
+}
+
+.socorroRosa {
+  display: flex;
+  flex-direction: column;
+
+  &__titulo {
+    color: $pink;
+    text-align: center;
+  }
+  &__label {
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+  }
+  &__input {
+    width: 50%;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    font-size: $font-L;
+    color: $darkGray;
+    &--sub {
+      height: 3rem;
+    }
+  }
+  &__provincia {
+    width: 50%;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+    font-family: $mainFont;
+    font-size: $font-L;
+    color: $darkGray;
+  }
+}
+.subForm {
+  &__2012,
+  &__2013,
+  &__2014,
+  &__2015,
+  &__2016,
+  &__2017,
+  &__2018,
+  &__2019,
+  &__2020 {
+    display: none;
+    margin-top: 2rem;
+    width: 100%;
+    padding: 2rem;
+    border-bottom: 2px solid $pink;
+  }
+  &__titulo {
+    margin: 1rem 0 1rem 0;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  label,
+  &__label {
+    font-size: $font-L;
+    color: $darkerGray;
+    height: 3rem;
+    margin: 1rem 0;
+    width: 30rem;
+
+    &--participa,
+    &--mudanza {
+      font-size: $font-L;
+      color: $darkerGray;
+      height: 3rem;
+      width: 5rem;
+    }
+  }
+  &__numerico {
+    font-size: $font-L;
+    color: $darkerGray;
+    height: 3rem;
+    margin: 1rem 0;
+    width: 10rem;
+    margin-left: 2rem;
+  }
+
+  .cuantasMudanza,
+  .dondeGrupa {
+    margin-top: 1rem;
+    display: none;
+    width: 30rem;
+  }
+
+  .subForm__participa {
+    display: none;
+  }
+}
