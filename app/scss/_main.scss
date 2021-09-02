@@ -18,14 +18,21 @@ button {
     cursor: pointer;
   }
 }
-
+.fechaGrupa {
+  > label {
+    margin-left: 1rem;
+  }
+  > input {
+    margin-left: 0.5rem;
+  }
+}
 .socorroRosa {
   display: flex;
   flex-direction: column;
 
   &__titulo {
     color: $pink;
-    text-align: center;
+    text-align: left;
   }
   &__label {
     padding-bottom: 0.5rem;
@@ -56,62 +63,91 @@ button {
     color: $darkGray;
   }
 }
-.subForm {
-  &__2012,
-  &__2013,
-  &__2014,
-  &__2015,
-  &__2016,
-  &__2017,
-  &__2018,
-  &__2019,
-  &__2020 {
-    display: none;
-    margin-top: 2rem;
-    width: 100%;
-    padding: 2rem;
-    border-bottom: 2px solid $pink;
-  }
-  &__titulo {
-    margin: 1rem 0 1rem 0;
-  }
-  &__content {
-    display: flex;
-    flex-direction: column;
-  }
-  label,
-  &__label {
-    font-size: $font-L;
-    color: $darkerGray;
-    height: 3rem;
-    margin: 1rem 0;
-    width: 30rem;
 
-    &--participa,
-    &--mudanza {
-      font-size: $font-L;
-      color: $darkerGray;
-      height: 3rem;
-      width: 5rem;
-    }
-  }
-  &__numerico {
-    font-size: $font-L;
-    color: $darkerGray;
-    height: 3rem;
-    margin: 1rem 0;
-    width: 10rem;
-    margin-left: 2rem;
-  }
+.subForm__2012,
+.subForm__2013,
+.subForm__2014,
+.subForm__2015,
+.subForm__2016,
+.subForm__2017,
+.subForm__2018,
+.subForm__2019,
+.subForm__2020 {
+  display: none;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 2rem;
+  border-bottom: 2px solid $pink;
+}
 
-  .cuantasMudanza,
-  .dondeGrupa {
+.subForm__titulo {
+  margin: 1rem 0 1rem 0;
+}
+.subForm__content {
+  display: flex;
+  flex-direction: column;
+}
+.subForm__input {
+  font-size: $font-L;
+  color: $darkerGray;
+  height: 3rem;
+  margin: 1rem 0 1rem 0;
+  width: 30rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+.subForm__numerico {
+  font-size: $font-L;
+  color: $darkerGray;
+  height: 3rem;
+  margin: 1rem 0 1rem 1rem;
+  width: 10rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.subForm__base,
+.subForm__actua {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  > select {
     margin-top: 1rem;
-    display: none;
-    width: 30rem;
   }
+}
 
-  .subForm__participa {
-    display: none;
-  }
+.cuantasMudanza-2012,
+.cuantasMudanza-2013,
+.cuantasMudanza-2014,
+.cuantasMudanza-2015,
+.cuantasMudanza-2016,
+.cuantasMudanza-2017,
+.cuantasMudanza-2018,
+.cuantasMudanza-2019,
+.cuantasMudanza-2020 {
+  display: none;
+  width: 30rem;
+}
+.dondeGrupa-2012,
+.dondeGrupa-2013,
+.dondeGrupa-2014,
+.dondeGrupa-2015,
+.dondeGrupa-2016,
+.dondeGrupa-2017,
+.dondeGrupa-2018,
+.dondeGrupa-2019,
+.dondeGrupa-2020 {
+  display: none;
+}
+
+.subForm__participa-2012,
+.subForm__participa-2013,
+.subForm__participa-2014,
+.subForm__participa-2015,
+.subForm__participa-2016,
+.subForm__participa-2017,
+.subForm__participa-2018,
+.subForm__participa-2019,
+.subForm__participa-2020 {
+  display: none;
 }
