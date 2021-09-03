@@ -1,194 +1,116 @@
 /* -------------------------------------------- */
-/*                     2012                     */
+/*           Checkbox logic                     */
 /* -------------------------------------------- */
-$('#2012').on('change', function () {
-
+$('.js-year').on('change', function () {
+    $year = $(this).val();
     if ($(this).is(':checked')) {
-        $('.subForm__2012').show()
+        $('.subForm__' + $year).show();
 
-        $('#mudanzaGrupa-2012').on('change', function (){
-            $('.cuantasMudanza-2012').toggle();
-            $('.subForm__participa-2012').toggle();
-        })
-        $('#participaGrupa-2012').on('change', function () {
-            $('.dondeGrupa-2012').toggle();
-        })
+        // $('#mudanzaGrupa-' + year).off('change');
+        $('#mudanzaGrupa-' + $year).on('change', function (){
+            $(this).parents('.js-sub-form').find('.cuantasMudanza').toggle();
+            $(this).parents('.js-sub-form').find('.subForm__participa').toggle();
+            // $('.cuantasMudanza-' + $year).toggle();
+            // $('.subForm__participa-' + $year).toggle();
+        });
+        // $('#participaGrupa-' + year).off('chage');
+        $('#participaGrupa-' + $year).on('change', function () {
+            $(this).parents('.js-sub-form').find('.dondeGrupa').toggle();
+        });
     } else {
-        $('.subForm__2012').hide()
+        $('.subForm__' + $year).hide();
     }
-})
+});
 
 /* -------------------------------------------- */
-/*                     2013                     */
+/*           Province logic                     */
 /* -------------------------------------------- */
-$('#2013').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2013').show()
-
-        $('#mudanzaGrupa-2013').on('change', function (){
-            $('.cuantasMudanza-2013').toggle();
-            $('.subForm__participa-2013').toggle();
-        })
-        $('#participaGrupa-2013').on('change', function () {
-            $('.dondeGrupa-2013').toggle();
-        })
-    } else {
-        $('.subForm__2013').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2014                     */
-/* -------------------------------------------- */
-$('#2014').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2014').show()
-
-        $('#mudanzaGrupa-2014').on('change', function (){
-            $('.cuantasMudanza-2014').toggle();
-            $('.subForm__participa-2014').toggle();
-        })
-        $('#participaGrupa-2014').on('change', function () {
-            $('.dondeGrupa-2014').toggle();
-        })
-    } else {
-        $('.subForm__2014').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2015                     */
-/* -------------------------------------------- */
-$('#2015').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2015').show()
-
-        $('#mudanzaGrupa-2015').on('change', function (){
-            $('.cuantasMudanza-2015').toggle();
-            $('.subForm__participa-2015').toggle();
-        })
-        $('#participaGrupa-2015').on('change', function () {
-            $('.dondeGrupa-2015').toggle();
-        })
-    } else {
-        $('.subForm__2015').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2016                     */
-/* -------------------------------------------- */
-$('#2016').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2016').show()
-
-        $('#mudanzaGrupa-2016').on('change', function (){
-            $('.cuantasMudanza-2016').toggle();
-            $('.subForm__participa-2016').toggle();
-        })
-        $('#participaGrupa-2016').on('change', function () {
-            $('.dondeGrupa-2016').toggle();
-        })
-    } else {
-        $('.subForm__2016').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2017                     */
-/* -------------------------------------------- */
-$('#2017').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2017').show()
-
-        $('#mudanzaGrupa-2017').on('change', function (){
-            $('.cuantasMudanza-2017').toggle();
-            $('.subForm__participa-2017').toggle();
-        })
-        $('#participaGrupa-2017').on('change', function () {
-            $('.dondeGrupa-2017').toggle();
-        })
-    } else {
-        $('.subForm__2013').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2018                     */
-/* -------------------------------------------- */
-$('#2018').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2018').show()
-
-        $('#mudanzaGrupa-2018').on('change', function (){
-            $('.cuantasMudanza-2018').toggle();
-            $('.subForm__participa-2018').toggle();
-        })
-        $('#participaGrupa-2018').on('change', function () {
-            $('.dondeGrupa-2018').toggle();
-        })
-    } else {
-        $('.subForm__2018').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2019                     */
-/* -------------------------------------------- */
-$('#2019').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2019').show()
-
-        $('#mudanzaGrupa-2019').on('change', function (){
-            $('.cuantasMudanza-2019').toggle();
-            $('.subForm__participa-2019').toggle();
-        })
-        $('#participaGrupa-2019').on('change', function () {
-            $('.dondeGrupa-2019').toggle();
-        })
-    } else {
-        $('.subForm__2019').hide()
-    }
-})
-/* -------------------------------------------- */
-/*                     2020                     */
-/* -------------------------------------------- */
-$('#2020').on('change', function () {
-
-    if ($(this).is(':checked')) {
-        $('.subForm__2020').show()
-
-        $('#mudanzaGrupa-2020').on('change', function (){
-            $('.cuantasMudanza-2020').toggle();
-            $('.subForm__participa-2020').toggle();
-        })
-        $('#participaGrupa-2020').on('change', function () {
-            $('.dondeGrupa-2020').toggle();
-        })
-    } else {
-        $('.subForm__2020').hide()
-    }
-})
-
-
-
-
-
 $('.js-province-list').on('change', function(){
     $province = $('.js-province-list').val()
     if ($province != '') {
-        var jqxhr = $.get( "https://apis.datos.gob.ar/georef/api/municipios?max=900&provincia=" + $province, function() {
+        var jqxhr = $.get( "https://apis.datos.gob.ar/georef/api/departamentos?max=900&provincia=" + $province, function() {
         
         })
             .done(function(data) {
-            $list = $('.js-municpios-list')
-            $.each(data.municipios, function() {
-                $list.append($("<option />").val(this.id).text(this.nombre));
-            });
+                $list = $('.js-municpios-list')
+                departamentos = []
+                $.each(data.departamentos, function() {
+                    departamentos.push({id: this.id, nombre: this.nombre})
+                });
+
+                departamentos.sort(function(a,b){
+                    if(a.id > b.id){ return 1}
+                     if(a.id < b.id){ return -1}
+                       return 0;
+                 });
+                $list.empty();
+                $.each(departamentos, function() {
+                    $list.append($("<option />").val(this.nombre).text(this.nombre));
+                })
             })
             .fail(function() {
             alert( "error" );
             });   
     }
+});
+
+/* -------------------------------------------- */
+/*              Email Sending                   */
+/* -------------------------------------------- */
+function sendEmail() {
+    Email.send({
+        SecureToken : "6eb4e1b0-c2d5-46cc-8696-1cf0ce9fc5c9",
+        To : 'matias.laino@gmail.com',
+        From : "from@example.com",
+        Subject : "Test email",
+        Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+    }).then(
+      message => alert(message)
+    );
+}
+
+
+/* -------------------------------------------- */
+/*           Form Submit logic                  */
+/* -------------------------------------------- */
+function defaultJsonData(){
+    return {
+        integrantes: '', 
+        usuarios_mudaron: '', 
+        catidad_mudanza:'', 
+        mudados_siguen_participando:'', 
+        mudados_siguen_participando_donde: '', 
+        base_grupa: '', 
+        otras_zonas: ''
+    };
+}
+
+function yearJson(year) {
+    yearData = defaultJsonData();
+
+    if ($("#" + year).prop('checked')) {
+        yearData['integrantes'] = $('.subForm__' + year).find('[name=integrantesGrupa]').val();
+        yearData['usuarios_mudaron'] = $('.subForm__' + year).find('[name=mudanzaGrupa]').val();
+        yearData['catidad_mudanza'] = $('.subForm__' + year).find('[name=cuantasMudanza]').val();
+        yearData['mudados_siguen_participando'] = $('.subForm__' + year).find('[name=sigue_participando]').val();
+        yearData['mudados_siguen_participando_donde'] = $('.subForm__' + year).find('[name=dondeGrupa]').val();
+        yearData['base_grupa'] = $('.subForm__' + year).find('[name=baseGrupa]').val();
+        yearData['otras_zonas'] = $('.subForm__' + year).find('[name=actuaGrupa]').val();
+    }
+    return yearData;
+}
+
+function submitForm() {
+    data = {};
+    for (let i = 2012; i < 2021; i++){
+        data[i] = yearJson(i);
+    }
+    return data;
+}
+
+$("form").on('submit', function( event ) {
+    event.preventDefault();
+    data = submitForm(this);
+    console.log(data)
+    // sendEmail();
 });
