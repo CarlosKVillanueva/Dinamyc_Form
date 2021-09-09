@@ -57,18 +57,27 @@ $('.js-province-list').on('change', function(){
 /* -------------------------------------------- */
 /*              Email Sending                   */
 /* -------------------------------------------- */
-function sendEmail() {
+function sendEmail( event ) {
     Email.send({
-        SecureToken : "6eb4e1b0-c2d5-46cc-8696-1cf0ce9fc5c9",
-        To : 'matias.laino@gmail.com',
-        From : "from@example.com",
-        Subject : "Test email",
-        Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+        SecureToken : "38e2ed4c-6985-43bc-916f-c5e05fc7ceae",
+        To : 'carloskvillanueva@gmail.com',
+        From : "carloskvillanueva@gmail.com",
+        Subject : "Grupa Test",
+        Body : "Body test"
+        // Attachments : [
+        //     {
+        //         name : file.name,
+        //         data : dataUri
+        //     }]
+
     }).then(
       message => alert(message)
     );
 }
 
+
+
+//38e2ed4c-6985-43bc-916f-c5e05fc7ceae
 
 /* -------------------------------------------- */
 /*           Form Submit logic                  */
@@ -95,7 +104,7 @@ function yearJson(year) {
         yearData['mudados_siguen_participando'] = $('.subForm__' + year).find('[name=sigue_participando]').val();
         yearData['mudados_siguen_participando_donde'] = $('.subForm__' + year).find('[name=dondeGrupa]').val();
         yearData['base_grupa'] = $('.subForm__' + year).find('[name=baseGrupa]').val();
-        yearData['otras_zonas'] = $('.subForm__' + year).find('[name=actuaGrupa]').val();
+        yearData['otras_zonas'] = $('.subForm__' + year).find('[name=actuoGrupa]').val();
     }
     return yearData;
 }
@@ -109,8 +118,9 @@ function submitForm() {
 }
 
 $("form").on('submit', function( event ) {
-    event.preventDefault();
     data = submitForm(this);
     console.log(data)
-    // sendEmail();
+    sendEmail();
+    event.preventDefault();
+    
 });
