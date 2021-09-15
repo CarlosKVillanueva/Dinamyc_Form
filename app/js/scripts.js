@@ -1,7 +1,11 @@
 /* -------------------------------------------- */
 /*           Checkbox logic                     */
 /* -------------------------------------------- */
+
+$(".success__Box").hide();
+$(".success__Message").hide();
 $('.js-year').on('change', function () {
+    
     $year = $(this).val();
     if ($(this).is(':checked')) {
         $('.subForm__' + $year).show();
@@ -107,5 +111,15 @@ $("form").on('submit', function( event ) {
     console.log(data)
     // sendEmail();
     event.preventDefault();
+
+    $("form").empty();
+
+    
+    $(".success__Box").show();
+    $(".success__Message").show();
+    
+    
+    
     
 });
+$("#form").trigger("reset"); //Line1

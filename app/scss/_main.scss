@@ -5,6 +5,21 @@ html {
 h2 {
   font-size: $font-XL;
 }
+.success__Box {
+  background-color: $lightGray;
+  width: 100vw;
+  height: 100vh;
+}
+.success__Message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  font-weight: bolder;
+  text-align: center;
+  color: $pink;
+}
 
 button {
   margin-top: 2rem;
