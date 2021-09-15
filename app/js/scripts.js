@@ -55,31 +55,6 @@ $('.js-province-list').on('change', function(){
 });
 
 /* -------------------------------------------- */
-/*              Email Sending                   */
-/* -------------------------------------------- */
-function sendEmail( event ) {
-    Email.send({
-        SecureToken : "38e2ed4c-6985-43bc-916f-c5e05fc7ceae",
-        To : 'carloskvillanueva@gmail.com',
-        From : "carloskvillanueva@gmail.com",
-        Subject : "Grupa Test",
-        Body : "Body test"
-        // Attachments : [
-        //     {
-        //         name : file.name,
-        //         data : dataUri
-        //     }]
-
-    }).then(
-      message => alert(message)
-    );
-}
-
-
-
-//38e2ed4c-6985-43bc-916f-c5e05fc7ceae
-
-/* -------------------------------------------- */
 /*           Form Submit logic                  */
 /* -------------------------------------------- */
 function defaultJsonData(){
@@ -104,23 +79,33 @@ function yearJson(year) {
         yearData['mudados_siguen_participando'] = $('.subForm__' + year).find('[name=sigue_participando]').val();
         yearData['mudados_siguen_participando_donde'] = $('.subForm__' + year).find('[name=dondeGrupa]').val();
         yearData['base_grupa'] = $('.subForm__' + year).find('[name=baseGrupa]').val();
-        yearData['otras_zonas'] = $('.subForm__' + year).find('[name=actuoGrupa]').val();
+        yearData['otras_zonas'] = $('.subForm__' + year).find('[name=actuoGrupa]').val().join(', ');
     }
     return yearData;
 }
 
 function submitForm() {
-    data = {};
+    data = {grupa: {nombre: $('#name').val(), provincia: $('#province option:selected').text(), years:[]}};
     for (let i = 2012; i < 2021; i++){
-        data[i] = yearJson(i);
+        year = {year: i, data: yearJson(i)}
+        data['grupa']['years'].push(year)
     }
-    return data;
+    // return data;
+
+    jQuery.ajax({
+        type: 'POST',
+        url: 'https://encuesta-grupa.herokuapp.com/grupas',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function(json) { }
+      });
 }
 
 $("form").on('submit', function( event ) {
     data = submitForm(this);
     console.log(data)
-    sendEmail();
+    // sendEmail();
     event.preventDefault();
     
 });
