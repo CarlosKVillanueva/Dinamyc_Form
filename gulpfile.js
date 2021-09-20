@@ -24,16 +24,16 @@ function scssTask() {
 		.pipe(dest('dist/css', { sourcemaps: '.' }));
 }
 
-/* -------------------------------------------------------------------------- */
-/*                               JAVASCRIPT TASK                              */
-/* -------------------------------------------------------------------------- */
-function jsTask() {
-	return src('app/js/scripts.js', { sourcemaps: true })
-		// .pipe(babel({ presets: ['@babel/preset-env'] }))
-		.pipe(terser())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(dest('dist/js', { sourcemaps: '.' }));
-}
+// /* -------------------------------------------------------------------------- */
+// /*                               JAVASCRIPT TASK                              */
+// /* -------------------------------------------------------------------------- */
+// function jsTask() {
+// 	return src('app/js/scripts.js', { sourcemaps: true })
+// 		// .pipe(babel({ presets: ['@babel/preset-env'] }))
+// 		.pipe(terser())
+// 		.pipe(rename({suffix: '.min'}))
+// 		.pipe(dest('dist/js', { sourcemaps: '.' }));
+// }
 
 /* -------------------------------------------------------------------------- */
 /*                                BROWSER SYNC                                */
@@ -72,7 +72,7 @@ function watchTask() {
 	watch('**/*.html', browserSyncReload);
 	watch(
 		['app/scss/**/*.scss', 'app/**/*.js'],
-		series(scssTask, jsTask, browserSyncReload)
+		series(scssTask, browserSyncReload)
 	);
 }
 
@@ -80,20 +80,20 @@ function watchTask() {
 /*                                  COPY TASK                                 */
 /* -------------------------------------------------------------------------- */
 
-function copyIMG() {
-	return src('img/*.{svg,ico}')
-	  .pipe(dest('dist/images'));
-}
+// function copyIMG() {
+// 	return src('img/*.{svg,ico}')
+// 	  .pipe(dest('dist/images'));
+// }
 
-function copyB() {
-	return src('app/css/*.*')
-	.pipe(dest('dist/css'))
-}
+// function copyB() {
+// 	return src('app/css/*.*')
+// 	.pipe(dest('dist/css'))
+// }
 
-function copyBJS() {
-	return src('app/js/bootstrap.bundle.min.*')
-	.pipe(dest('dist/js'))
-}
+// function copyBJS() {
+// 	return src('app/js/bootstrap.bundle.min.*')
+// 	.pipe(dest('dist/js'))
+// }
 
 
 
@@ -101,5 +101,5 @@ function copyBJS() {
 /* -------------------------------------------------------------------------- */
 /*                                  GULP TASK                                 */
 /* -------------------------------------------------------------------------- */
-exports.preprocess = series(webpImage, copyIMG, copyB, copyBJS);
-exports.default = series(scssTask,jsTask, browserSyncServe, watchTask);
+// exports.preprocess = series(webpImage, copyIMG, copyB, copyBJS);
+exports.default = series(scssTask, browserSyncServe, watchTask);

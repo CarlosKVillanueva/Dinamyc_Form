@@ -1,13 +1,17 @@
-/* -------------------------------------------- */
-/*           Checkbox logic                     */
-/* -------------------------------------------- */
 
 $(".success__Box").hide();
 $(".success__Message").hide();
+
+/* -------------------------------------------------------------------------- */
+/*                               CHECKBOX LOGIC                               */
+/* -------------------------------------------------------------------------- */
+
+/*
 $('.js-year').on('change', function () {
     
     $year = $(this).val();
-    if ($(this).is(':checked')) {
+    console.log(year)
+    if ($(this).is(':selected')) {
         $('.subForm__' + $year).show();
 
         // $('#mudanzaGrupa-' + year).off('change');
@@ -24,11 +28,52 @@ $('.js-year').on('change', function () {
     } else {
         $('.subForm__' + $year).hide();
     }
+
+// 1. Agregamos si operan en otra provincia (SI/NO, no por deafult)
+// 2. Cambiar la seccion de años a "Año en el que se funda la grupa", y "Año de cese de actividades" (o sugerime otro titulo), y que cree 1 sub form por cada año entre medio.
+// 3. Al hacer enviar, pregunta si esta seguro que la grupa opera desde inicio a fin.
+// 4. Agregar un campo de notas no requerido al final, entre los años y el boton de enviar.
+5. Que al hacer enviar, valide que:
+//   a. Nombre de la grupa no sea vacio
+//   b. Provincia Tenga algun valor seleccionado
+//   c. para cada año visible que la cantidad de personas sea mayor a 0, y la localidad tenga algun valor seleccionado.
+
+
 });
 
-/* -------------------------------------------- */
-/*           Province logic                     */
-/* -------------------------------------------- */
+*/
+
+/* -------------------------------------------------------------------------- */
+/*                                SELECT LOGIC                                */
+/* -------------------------------------------------------------------------- */
+$('#fechaGrupa').on('change', function(){
+
+    $fundaYear = $('#fundaGrupa').val();
+    // console.log($fundaYear);
+    $ceseYear = $('#ceseGrupa').val();
+    // console.log($ceseYear);
+
+    for (let i = $fundaYear; i <= $ceseYear; i++) {
+        $('.subForm__' + i).show();
+        $('#mudanzaGrupa-' + i).on('change', function (){
+            $(this).parents('.js-sub-form').find('.cuantasMudanza').toggle();
+            $(this).parents('.js-sub-form').find('.subForm__participa').toggle();
+            
+        });
+        $('#participaGrupa-' + i).on('change', function () {
+            $(this).parents('.js-sub-form').find('.dondeGrupa').toggle();
+        });
+        
+    }
+})
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                               PROVINCE LOGIC                               */
+/* -------------------------------------------------------------------------- */
+
 $('.js-province-list').on('change', function(){
     $province = $('.js-province-list').val()
     if ($province != '') {
@@ -106,17 +151,23 @@ function submitForm() {
       });
 }
 
-$("form").on('submit', function( event ) {
-    data = submitForm(this);
-    console.log(data)
-    // sendEmail();
-    event.preventDefault();
+$("form").on('submit', function( event ) { 
 
-    $("form").empty();
-
+    if(confirm('Esta segura que la grupa opera desde ' +$fundaYear+ ' hasta ' +  $ceseYear + '?')) {
+        return true
+        data = submitForm(this);
+        console.log(data)
+        // sendEmail();
+        event.preventDefault();
     
-    $(".success__Box").show();
-    $(".success__Message").show();
+        $("form").empty();
+    
+        
+        $(".success__Box").show();
+        $(".success__Message").show();
+    }
+
+    return false
     
     
     

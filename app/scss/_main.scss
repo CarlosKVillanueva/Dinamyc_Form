@@ -21,6 +21,14 @@ h2 {
   color: $pink;
 }
 
+.cese_parrafo {
+  font-size: $font-S;
+  margin: 0;
+}
+
+.cese_title {
+  margin-bottom: 0.5rem;
+}
 button {
   margin-top: 2rem;
   padding: 1rem;
@@ -111,7 +119,8 @@ kbd {
 .subForm__2017,
 .subForm__2018,
 .subForm__2019,
-.subForm__2020 {
+.subForm__2020,
+.subForm__2021 {
   display: none;
   margin-top: 2rem;
   width: 100%;
