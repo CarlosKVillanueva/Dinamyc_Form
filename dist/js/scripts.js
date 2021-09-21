@@ -49,9 +49,7 @@ $('.js-year').on('change', function () {
 $('#fechaGrupa').on('change', function(){
 
     $fundaYear = $('#fundaGrupa').val();
-    // console.log($fundaYear);
     $ceseYear = $('#ceseGrupa').val();
-    // console.log($ceseYear);
 
     for (let i = $fundaYear; i <= $ceseYear; i++) {
         $('.subForm__' + i).show();
@@ -66,9 +64,6 @@ $('#fechaGrupa').on('change', function(){
         
     }
 })
-
-
-
 
 /* -------------------------------------------------------------------------- */
 /*                               PROVINCE LOGIC                               */
@@ -134,7 +129,15 @@ function yearJson(year) {
 }
 
 function submitForm() {
-    data = {grupa: {nombre: $('#name').val(), provincia: $('#province option:selected').text(), years:[]}};
+    data = {
+        grupa: {
+            nombre: $('#name').val(), 
+            provincia: $('#province option:selected').text(), 
+            opera_otra_provincia: $("#operanProvincia").val(),
+            notas: $("#notas").text(),
+            years:[]
+        }
+    };
     for (let i = 2012; i < 2021; i++){
         year = {year: i, data: yearJson(i)}
         data['grupa']['years'].push(year)
@@ -152,25 +155,18 @@ function submitForm() {
 }
 
 $("form").on('submit', function( event ) { 
-
     if(confirm('Esta segura que la grupa opera desde ' +$fundaYear+ ' hasta ' +  $ceseYear + '?')) {
-        return true
         data = submitForm(this);
-        console.log(data)
-        // sendEmail();
+        // console.log(data)
         event.preventDefault();
     
         $("form").empty();
-    
         
         $(".success__Box").show();
         $(".success__Message").show();
+        return true
+    }else{
+        return false
     }
-
-    return false
-    
-    
-    
-    
 });
 $("#form").trigger("reset"); //Line1
