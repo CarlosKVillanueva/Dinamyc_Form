@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,10 +75,10 @@
         </select>
       </div>
 
-      <div class="fechaGrupa" id="fechaGrupa">
+      <div>
         <h3>Año en el que se funda la grupa</h3>
 
-        <select class="subForm__input" name="fundaGrupa" id="fundaGrupa">
+        <select class="subForm__input fechaGrupa" name="fundaGrupa" id="fundaGrupa">
           <option name="grupa" class="js-year" id="2012" value="0" disabled selected>Seleccione el año</option>
           <option name="grupa" class="js-year" id="2012" value="2012">2012</option>
           <option name="grupa" class="js-year" id="2013" value="2013">2013</option>
@@ -94,7 +94,7 @@
           <h3 class="cese_title">Año de cese de actividades</h3>
           <p class="cese_parrafo">(Seleccione 2020 si la grupa sigue en actividad)</p>
         </div>
-        <select class="subForm__input" name="ceseGrupa" id="ceseGrupa">
+        <select class="subForm__input fechaGrupa" name="ceseGrupa" id="ceseGrupa">
           <option name="grupa" class="js-year" id="2012" value="0" selected>Seleccione el año</option>
           <option name="grupa" class="js-year" id="2012" value="2012">2012</option>
           <option name="grupa" class="js-year" id="2013" value="2013">2013</option>
@@ -157,7 +157,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -184,7 +184,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2012?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -217,7 +217,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -244,7 +244,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2013?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -277,7 +277,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -304,7 +304,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2014?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -337,7 +337,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -364,7 +364,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2015?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -397,7 +397,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -424,7 +424,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2016?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -457,7 +457,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -484,7 +484,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2017?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -517,7 +517,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0"/>
           </div>
         </div>
 
@@ -544,7 +544,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2018?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -577,7 +577,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0"/>
           </div>
         </div>
 
@@ -604,7 +604,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2019?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>
@@ -637,7 +637,7 @@
           <div class="cuantasMudanza">
             <label for="cuantasMudanza">¿Cuantas? </label>
 
-            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" min="1" required />
+            <input class="subForm__numerico" type="number" name="cuantasMudanza" id="cuantasMudanza" value="0" />
           </div>
         </div>
 
@@ -664,7 +664,7 @@
 
         <div class="subForm__actua">
           <label for="actuoGrupa">¿En qué otras localidades actuó la grupa en 2020?</label>
-          <select required class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
+          <select class="selectActuo subForm__input js-municpios-list" name="actuoGrupa" multiple size="10" multiple size="10"></select>
           <p class="control">
             Mantenga presionado
             <kbd>Ctrl</kbd>

@@ -46,13 +46,24 @@ $('.js-year').on('change', function () {
 /* -------------------------------------------------------------------------- */
 /*                                SELECT LOGIC                                */
 /* -------------------------------------------------------------------------- */
-$('#fechaGrupa').on('change', function(){
+
+function disableForms(){
+    for (let i = 2012; i < 2021; i++) {
+        $('.subForm__' + i).hide();
+        $('.subForm__' + i).find('input').prop('disabled', true);
+    }
+}
+
+$('.fechaGrupa').on('change', function(){
 
     $fundaYear = $('#fundaGrupa').val();
     $ceseYear = $('#ceseGrupa').val();
 
+    disableForms();
+
     for (let i = $fundaYear; i <= $ceseYear; i++) {
         $('.subForm__' + i).show();
+        $('.subForm__' + i).find('input').prop('disabled', false);
         $('#mudanzaGrupa-' + i).on('change', function (){
             $(this).parents('.js-sub-form').find('.cuantasMudanza').toggle();
             $(this).parents('.js-sub-form').find('.subForm__participa').toggle();
@@ -113,10 +124,17 @@ function defaultJsonData(){
     };
 }
 
+function yearChecked(year){
+    $fundaYear = $('#fundaGrupa').val();
+    $ceseYear = $('#ceseGrupa').val();
+    
+    return ($fundaYear <= year) && ( $ceseYear >= year);
+}
+
 function yearJson(year) {
     yearData = defaultJsonData();
 
-    if ($("#" + year).prop('checked')) {
+    if (yearChecked(year)) {
         yearData['integrantes'] = $('.subForm__' + year).find('[name=integrantesGrupa]').val();
         yearData['usuarios_mudaron'] = $('.subForm__' + year).find('[name=mudanzaGrupa]').val();
         yearData['catidad_mudanza'] = $('.subForm__' + year).find('[name=cuantasMudanza]').val();
@@ -134,7 +152,7 @@ function submitForm() {
             nombre: $('#name').val(), 
             provincia: $('#province option:selected').text(), 
             opera_otra_provincia: $("#operanProvincia").val(),
-            notas: $("#notas").text(),
+            notas: $("#notas").val(),
             years:[]
         }
     };
@@ -169,4 +187,7 @@ $("form").on('submit', function( event ) {
         return false
     }
 });
-$("#form").trigger("reset"); //Line1
+$(document).on('ready', function(){
+    $("#form").trigger("reset");
+    disableForms();
+})
