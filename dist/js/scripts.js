@@ -49,9 +49,7 @@ $('.js-year').on('change', function () {
 $('#fechaGrupa').on('change', function(){
 
     $fundaYear = $('#fundaGrupa').val();
-    // console.log($fundaYear);
     $ceseYear = $('#ceseGrupa').val();
-    // console.log($ceseYear);
 
     for (let i = $fundaYear; i <= $ceseYear; i++) {
         $('.subForm__' + i).show();
@@ -66,9 +64,6 @@ $('#fechaGrupa').on('change', function(){
         
     }
 })
-
-
-
 
 /* -------------------------------------------------------------------------- */
 /*                               PROVINCE LOGIC                               */
@@ -152,25 +147,17 @@ function submitForm() {
 }
 
 $("form").on('submit', function( event ) { 
-
     if(confirm('Esta segura que la grupa opera desde ' +$fundaYear+ ' hasta ' +  $ceseYear + '?')) {
         return true
         data = submitForm(this);
-        console.log(data)
-        // sendEmail();
+        // console.log(data)
         event.preventDefault();
     
         $("form").empty();
-    
         
         $(".success__Box").show();
         $(".success__Message").show();
     }
-
     return false
-    
-    
-    
-    
 });
 $("#form").trigger("reset"); //Line1
